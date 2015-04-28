@@ -2,6 +2,8 @@
 
 var chalk = require("chalk");
 
+var config = require("./config");
+
 module.exports = {
 
 	error: function(data, error) {
@@ -16,12 +18,14 @@ module.exports = {
 	},
 
 	header: function() {
-		this.main("");
-		this.main(chalk.blue("################################################################################"));
-		this.main(chalk.blue("##                                                                            ##"));
-		this.main(chalk.blue("##                                MySequelize                                 ##"));
-		this.main(chalk.blue("##                                                                            ##"));
-		this.main(chalk.blue("################################################################################"));
+		if (!config.silent) {
+			this.main("");
+			this.main(chalk.blue("################################################################################"));
+			this.main(chalk.blue("##                                                                            ##"));
+			this.main(chalk.blue("##                                MySequelize                                 ##"));
+			this.main(chalk.blue("##                                                                            ##"));
+			this.main(chalk.blue("################################################################################"));
+		}
 	},
 
 	main: function() {
@@ -29,11 +33,15 @@ module.exports = {
 	},
 
 	success: function(data) {
-		this.format(data, "green");
+		if (!config.silent) {
+			this.format(data, "green");
+		}
 	},
 
 	warning: function(data) {
-		this.format(data, "yellow");
+		if (!config.silent) {
+			this.format(data, "yellow");
+		}
 	}
 
 };
