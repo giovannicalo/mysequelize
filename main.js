@@ -5,18 +5,12 @@ var minimist = require("minimist");
 var sequelize = require("sequelize");
 
 var config = require("./config");
+var deep_extend = require("./deep_extend");
 var log = require("./log");
+var parameter = require("./parameter");
 
-var parameter_list = minimist(process.argv.slice(2), {
-	alias: {
-		d: "database",
-		t: "table"
-	},
-	string: [
-		"database",
-		"table"
-	]
-});
+var parameter_list = minimist(process.argv.slice(2), parameter);
+deep_extend(config, parameter_list);
 
 module.exports = (function(database, table) {
 	log.header();
