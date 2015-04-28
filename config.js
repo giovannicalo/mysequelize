@@ -23,6 +23,8 @@ module.exports = {
 		user: "root"
 	},
 
+	silent: false,
+
 	strict: true
 
 };
