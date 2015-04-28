@@ -10,7 +10,7 @@ module.exports = function(destination) {
 			for (key in source) {
 				if (source.hasOwnProperty(key)) {
 					if ((destination[key]) && (source[key].constructor === Object) && (destination[key].constructor === Object)) {
-						destination[key] = this(destination[key], source[key]);
+						destination[key] = module.exports(destination[key], source[key]);
 					} else {
 						destination[key] = source[key];
 					}
