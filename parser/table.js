@@ -12,6 +12,12 @@ module.exports = function(database, table) {
 			var language = constant.language[config.language].content;
 			var content = [];
 			var i = 0;
+			if ((config.language == "javascript") && (config.strict)) {
+				content.push({
+					indentation: 0,
+					text: "\"use strict\";\n"
+				});
+			}
 			content.push({
 				indentation: 0,
 				text: language.module
@@ -40,7 +46,7 @@ module.exports = function(database, table) {
 			}
 			content.push({
 				indentation: 1,
-				text: language.block_end(true, true)
+				text: language.block_end(true, true, true)
 			});
 			content.push({
 				indentation: 0,
