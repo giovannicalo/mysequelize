@@ -2,6 +2,8 @@
 
 module.exports = {
 
+	directory: "./database/model",
+
 	end_of_line: "\n",
 
 	indentation: "\t",
