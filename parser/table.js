@@ -1,7 +1,7 @@
 "use strict";
 
 var config = require("../config");
-var constant = require("./constant");
+var constant = require("../constant");
 var log = require("../log");
 var string_case = require("../string_case");
 

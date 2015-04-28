@@ -2,7 +2,7 @@
 
 var chalk = require("chalk");
 
-var constant = require("./constant");
+var constant = require("../constant");
 var log = require("../log");
 
 module.exports = function(input) {
