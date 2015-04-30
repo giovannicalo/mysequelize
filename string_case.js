@@ -5,6 +5,7 @@ var inflection = require("inflection");
 module.exports = {
 
 	string: null,
+
 	convert: function(string, destination) {
 		if (this["to_" + destination]) {
 			return this.from(string)["to_" + destination]();
