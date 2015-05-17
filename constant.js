@@ -5,8 +5,8 @@ module.exports = {
 	language: {
 		coffeescript: {
 			content: {
-				block_end: function() {
-					return null;
+				block_end: function(is_last, is_function, is_end, is_another) {
+					return ((is_another) ? "," : "");
 				},
 				block_start: null,
 				field: function(name) {

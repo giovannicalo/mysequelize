@@ -32,7 +32,7 @@ module.exports = function(database, table) {
 			});
 			content.push({
 				indentation: 1,
-				text: language.block_end()
+				text: language.block_end(false, false, false, true)
 			});
 			content.push({
 				indentation: 1,
