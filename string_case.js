@@ -9,6 +9,7 @@ module.exports = {
 	string: null,
 
 	convert: function(string, destination) {
+		destination = this.from(destination).to_snake();
 		if (this["to_" + destination]) {
 			return this.from(string)["to_" + destination]();
 		} else {
