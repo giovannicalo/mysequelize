@@ -11,6 +11,7 @@ module.exports = {
 		if (error) {
 			throw error;
 		}
+		process.exit();
 	},
 
 	format: function(data, color) {
