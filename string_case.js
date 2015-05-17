@@ -2,6 +2,8 @@
 
 var inflection = require("inflection");
 
+var log = require("./log");
+
 module.exports = {
 
 	string: null,
@@ -15,7 +17,7 @@ module.exports = {
 	},
 
 	error: function(error) {
-		throw new Error("Case \"" + error + "\" is not supported.");
+		log.error("Case \"" + error + "\" is not supported.");
 	},
 
 	from: function(string) {
