@@ -50,7 +50,7 @@ module.exports = function(database, table) {
 			});
 			content.push({
 				indentation: 0,
-				text: language.block_end(true, false, true)
+				text: language.block_end(true, false, true, false, true)
 			});
 			require("../file")(table, content);
 		});

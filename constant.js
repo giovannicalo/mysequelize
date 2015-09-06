@@ -22,6 +22,25 @@ module.exports = {
 			},
 			extension: "coffee"
 		},
+		ecmascript: {
+			content: {
+				block_end: function(is_last, is_function, is_end, is_another, is_final) {
+					return "}" + ((is_function) ? ")" : "") + ((is_last) ? "" : ",") + ((is_end && !is_final) ? ";" : "");
+				},
+				block_start: "{",
+				field: function(name) {
+					return name + ": {";
+				},
+				model: function(name) {
+					return "return sequelize.define(\"" + name + "\", {";
+				},
+				module: "export default function(sequelize, type) {",
+				property: function(key, value, is_last) {
+					return key + ": " + value + ((is_last) ? "" : ",");
+				}
+			},
+			extension: "js"
+		},
 		javascript: {
 			content: {
 				block_end: function(is_last, is_function, is_end) {
