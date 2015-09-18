@@ -14,15 +14,18 @@ module.exports = function(database, table) {
 			var i = 0;
 			if ((config.language == "javascript") && (config.strict)) {
 				content.push({
+					end_of_line: true,
 					indentation: 0,
 					text: "\"use strict\";\n"
 				});
 			}
 			content.push({
+				end_of_line: true,
 				indentation: 0,
 				text: language.module
 			});
 			content.push({
+				end_of_line: true,
 				indentation: 1,
 				text: language.model(name)
 			});
@@ -31,24 +34,29 @@ module.exports = function(database, table) {
 				i++;
 			});
 			content.push({
+				end_of_line: language.end_of_line,
 				indentation: 1,
 				text: language.block_end(false, false, false, true)
 			});
 			content.push({
+				end_of_line: true,
 				indentation: 1,
 				text: language.block_start
 			});
 			if (table != name) {
 				content.push({
+					end_of_line: true,
 					indentation: 2,
-					text: language.property("tableName", "\"" + table + "\"")
+					text: language.property("tableName", "\"" + table + "\"", true)
 				});
 			}
 			content.push({
+				end_of_line: true,
 				indentation: 1,
 				text: language.block_end(true, true, true)
 			});
 			content.push({
+				end_of_line: true,
 				indentation: 0,
 				text: language.block_end(true, false, true, false, true)
 			});

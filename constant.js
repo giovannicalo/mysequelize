@@ -9,6 +9,7 @@ module.exports = {
 					return ((is_another) ? "," : "");
 				},
 				block_start: null,
+				end_of_line: true,
 				field: function(name) {
 					return name + ":";
 				},
@@ -28,6 +29,7 @@ module.exports = {
 					return "}" + ((is_function) ? ")" : "") + ((is_last) ? "" : ",") + ((is_end && !is_final) ? ";" : "");
 				},
 				block_start: "{",
+				end_of_line: false,
 				field: function(name) {
 					return name + ": {";
 				},
@@ -47,6 +49,7 @@ module.exports = {
 					return "}" + ((is_function) ? ")" : "") + ((is_last) ? "" : ",") + ((is_end) ? ";" : "");
 				},
 				block_start: "{",
+				end_of_line: false,
 				field: function(name) {
 					return name + ": {";
 				},
